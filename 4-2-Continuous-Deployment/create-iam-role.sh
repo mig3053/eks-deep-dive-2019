@@ -4,7 +4,7 @@ ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
 
 TRUST="{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Principal\": { \"AWS\": \"arn:aws:iam::$ACCOUNT_ID:root\" }, \"Action\": \"sts:AssumeRole\" } ] }"
 
-TEMP='/tmp/iam-role-policy'
+TEMP='./iam-role-policy'
 
 echo '{ "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": "eks:Describe*", "Resource": "*" } ] }' > $TEMP
 
